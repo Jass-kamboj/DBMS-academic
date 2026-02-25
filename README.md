@@ -1,4 +1,4 @@
-# DBMS-academic
+<img width="1920" height="1020" alt="image" src="https://github.com/user-attachments/assets/7ed6a7ee-5668-4d3b-b4ba-1141862054bc" /># DBMS-academic
 Start of DBMS with leatcode 
 leatcode problem 176___
 select max(salary) as SecondHighestSalary from Employee where salary<(select max(salary) from Employee)
@@ -80,3 +80,12 @@ SELECT E.name, B.bonus FROM Employee E
 LEFT JOIN Bonus B
 ON E.empId = B.empId
 WHERE bonus < 1000 OR bonus IS NULL;
+
+problem 1280___
+SELECT S1.student_id, S1.student_name, S2.subject_name, COUNT(E.student_id) AS attended_exams FROM Students S1
+CROSS JOIN Subjects S2
+LEFT JOIN Examinations E
+ON S1.student_id = E.student_id
+AND S2.subject_name = E.subject_name
+GROUP BY S1.student_id,S1.student_name,S2.Subject_name
+ORDER BY S1.student_id, S2.subject_name
