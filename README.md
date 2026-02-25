@@ -1,4 +1,3 @@
-<img width="1920" height="1020" alt="image" src="https://github.com/user-attachments/assets/7ed6a7ee-5668-4d3b-b4ba-1141862054bc" /># DBMS-academic
 Start of DBMS with leatcode 
 leatcode problem 176___
 select max(salary) as SecondHighestSalary from Employee where salary<(select max(salary) from Employee)
@@ -89,3 +88,10 @@ ON S1.student_id = E.student_id
 AND S2.subject_name = E.subject_name
 GROUP BY S1.student_id,S1.student_name,S2.Subject_name
 ORDER BY S1.student_id, S2.subject_name
+
+problem 570___
+SELECT E1.name FROM Employee E1
+JOIN Employee E2
+ON E1.id = E2.managerId
+GROUP BY E1.id, E1.name
+HAVING COUNT(E2.id) >= 5;
