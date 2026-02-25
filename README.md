@@ -74,3 +74,9 @@ SELECT A1.machine_id, ROUND(AVG(A2.timestamp - A1.timestamp),3) AS processing_ti
     AND A1.activity_type = 'start'
     AND A2.activity_type = 'end'
     GROUP BY machine_id;
+
+problem 577___
+SELECT E.name, B.bonus FROM Employee E
+LEFT JOIN Bonus B
+ON E.empId = B.empId
+WHERE bonus < 1000 OR bonus IS NULL;
