@@ -105,3 +105,8 @@ SELECT S.user_id,ROUND(IFNULL(AVG(C.action='confirmed'),0),2)AS confirmation_rat
 LEFT JOIN Confirmations C
 ON S.user_id = C.user_id
 GROUP BY s.user_id
+
+problem 620___
+SELECT`id`,`movie`,`description`,`rating`FROM`Cinema`
+WHERE id%2!=0 AND`description`!='boring'
+ORDER BY`rating`DESC
