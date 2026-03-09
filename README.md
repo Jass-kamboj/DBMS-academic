@@ -95,3 +95,7 @@ JOIN Employee E2
 ON E1.id = E2.managerId
 GROUP BY E1.id, E1.name
 HAVING COUNT(E2.id) >= 5;
+
+problem 2356___
+SELECT teacher_id, COUNT(DISTINCT subject_id)AS cnt FROM Teacher
+GROUP BY teacher_id
