@@ -99,3 +99,9 @@ HAVING COUNT(E2.id) >= 5;
 problem 2356___
 SELECT teacher_id, COUNT(DISTINCT subject_id)AS cnt FROM Teacher
 GROUP BY teacher_id
+
+problem 1934___
+SELECT S.user_id,ROUND(IFNULL(AVG(C.action='confirmed'),0),2)AS confirmation_rate FROM Signups S
+LEFT JOIN Confirmations C
+ON S.user_id = C.user_id
+GROUP BY s.user_id
