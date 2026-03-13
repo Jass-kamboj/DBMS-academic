@@ -133,3 +133,10 @@ round(count(distinct user_id) * 100 /(select count(user_id) from Users) ,2) as p
 from Register
 group by contest_id
 order by percentage desc,contest_id ASC
+
+problem 1211___
+SELECT Q.query_name,
+ROUND(AVG(Q.rating/Q.position),2) AS quality,
+ROUND(AVG(CASE WHEN rating < 3 THEN 1 ELSE 0 END)*100,2) AS poor_query_percentage
+FROM Queries Q
+GROUP BY Q.query_name
