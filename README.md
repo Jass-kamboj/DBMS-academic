@@ -126,3 +126,10 @@ FROM Project P
 LEFT JOIN Employee E
 ON P.employee_id = E.employee_id
 GROUP BY P.project_id
+
+problem 1633___
+select contest_id, 
+round(count(distinct user_id) * 100 /(select count(user_id) from Users) ,2) as percentage
+from Register
+group by contest_id
+order by percentage desc,contest_id ASC
