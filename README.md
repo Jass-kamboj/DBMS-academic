@@ -140,3 +140,13 @@ ROUND(AVG(Q.rating/Q.position),2) AS quality,
 ROUND(AVG(CASE WHEN rating < 3 THEN 1 ELSE 0 END)*100,2) AS poor_query_percentage
 FROM Queries Q
 GROUP BY Q.query_name
+
+problem 1193___
+SELECT DATE_FORMAT(trans_date,'%Y-%m') AS month,
+country,
+COUNT(trans_date) AS trans_count,
+COUNT(IF(state = 'approved' ,1, NULL)) AS approved_count,
+SUM(amount) AS trans_total_amount,
+SUM(IF(state = 'approved' ,amount, 0)) AS approved_total_amount
+FROM Transactions
+GROUP BY country,(DATE_FORMAT(trans_date,'%Y-%m'))
