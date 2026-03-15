@@ -150,3 +150,10 @@ SUM(amount) AS trans_total_amount,
 SUM(IF(state = 'approved' ,amount, 0)) AS approved_total_amount
 FROM Transactions
 GROUP BY country,(DATE_FORMAT(trans_date,'%Y-%m'))
+
+problem 1174___
+SELECT
+ROUND((SUM(IF(order_date = customer_pref_delivery_date,1,0))/COUNT(customer_id))*100,2)AS immediate_percentage FROM Delivery
+WHERE(customer_id,order_date)IN
+(SELECT customer_id,MIN(order_date) FROM Delivery
+GROUP BY customer_id)
