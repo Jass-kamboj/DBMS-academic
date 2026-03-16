@@ -1,4 +1,4 @@
-Start of DBMS with leatcode 
+<img width="1920" height="1020" alt="image" src="https://github.com/user-attachments/assets/08442ed6-7c54-4678-bf97-e78ab04a1ab5" />Start of DBMS with leatcode 
 leatcode problem 176___
 select max(salary) as SecondHighestSalary from Employee where salary<(select max(salary) from Employee)
 
@@ -157,3 +157,13 @@ ROUND((SUM(IF(order_date = customer_pref_delivery_date,1,0))/COUNT(customer_id))
 WHERE(customer_id,order_date)IN
 (SELECT customer_id,MIN(order_date) FROM Delivery
 GROUP BY customer_id)
+
+problem 550___
+SELECT
+ROUND(
+    (SELECT COUNT(DISTINCT A1.player_id)
+    FROM Activity A1 JOIN (SELECT player_id,MIN(event_date) AS first_login
+    FROM Activity GROUP BY player_id) A2
+    ON A1.player_id = A2.player_id
+    AND A1.event_date = A2.first_login + INTERVAL 1 DAY)/COUNT(DISTINCT player_id),2) AS fraction
+FROM Activity
