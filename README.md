@@ -167,3 +167,9 @@ ROUND(
     ON A1.player_id = A2.player_id
     AND A1.event_date = A2.first_login + INTERVAL 1 DAY)/COUNT(DISTINCT player_id),2) AS fraction
 FROM Activity
+
+problem 183___
+SELECT C.name AS Customers FROM Customers C
+LEFT JOIN Orders O
+ON C.id = O.customerId
+WHERE O.id IS NULL;
