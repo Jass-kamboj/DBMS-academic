@@ -1,4 +1,4 @@
-Start of DBMS with leatcode 
+<img width="1920" height="1020" alt="image" src="https://github.com/user-attachments/assets/d0bd63e1-f365-481a-8703-927ce49514db" />Start of DBMS with leatcode 
 leatcode problem 176___
 select max(salary) as SecondHighestSalary from Employee where salary<(select max(salary) from Employee)
 
@@ -173,3 +173,8 @@ SELECT C.name AS Customers FROM Customers C
 LEFT JOIN Orders O
 ON C.id = O.customerId
 WHERE O.id IS NULL;
+
+problem 1141___
+SELECT DISTINCT activity_date AS day, COUNT(DISTINCT user_id) AS active_users FROM Activity
+WHERE activity_date BETWEEN SUBDATE('2019-07-27', INTERVAL 29 DAY) AND '2019-07-27'
+GROUP BY activity_date
