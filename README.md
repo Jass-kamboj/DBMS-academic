@@ -1,4 +1,4 @@
-<img width="1920" height="1020" alt="image" src="https://github.com/user-attachments/assets/d0bd63e1-f365-481a-8703-927ce49514db" />Start of DBMS with leatcode 
+Start of DBMS with leatcode 
 leatcode problem 176___
 select max(salary) as SecondHighestSalary from Employee where salary<(select max(salary) from Employee)
 
