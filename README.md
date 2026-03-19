@@ -178,3 +178,11 @@ problem 1141___
 SELECT DISTINCT activity_date AS day, COUNT(DISTINCT user_id) AS active_users FROM Activity
 WHERE activity_date BETWEEN SUBDATE('2019-07-27', INTERVAL 29 DAY) AND '2019-07-27'
 GROUP BY activity_date
+
+problem 10701___
+select product_id, year as first_year, quantity, price 
+from sales where (product_id, year) in (
+    select product_id, min(year)
+    from sales
+    group by product_id
+)
