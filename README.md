@@ -190,3 +190,8 @@ from sales where (product_id, year) in (
 problem 596___
 SELECT class FROM Courses
 GROUP BY class HAVING COUNT(class)>=5
+
+peoblem 1045___
+SELECT customer_id FROM Customer
+GROUP BY customer_id
+HAVING COUNT(DISTINCT product_key)= (SELECT COUNT(product_key) FROM Product)
