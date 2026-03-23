@@ -211,3 +211,9 @@ JOIN Employees E2
 ON E1.employee_id = E2.reports_to
 GROUP BY E1.employee_id
 ORDER BY employee_id
+
+34.problem 175___
+SELECT P.firstName,P.lastName,A.city,A.state
+FROM Person P
+LEFT JOIN Address A
+ON P.personId = A.personId
