@@ -226,5 +226,5 @@ SELECT employee_id,department_id FROM Employee
 GROUP BY employee_id
 HAVING COUNT(employee_id) = 1
 
-problem 610___
+36.problem 610___
 SELECT x,y,z,IF(x+y>z AND y+z>x AND z+x>y,"Yes","No") AS triangle FROM Triangle
