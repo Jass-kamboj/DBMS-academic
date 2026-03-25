@@ -217,3 +217,11 @@ SELECT P.firstName,P.lastName,A.city,A.state
 FROM Person P
 LEFT JOIN Address A
 ON P.personId = A.personId
+
+35.problem 1789___
+SELECT employee_id,department_id FROM Employee
+WHERE primary_flag = 'Y'
+UNION
+SELECT employee_id,department_id FROM Employee
+GROUP BY employee_id
+HAVING COUNT(employee_id) = 1
