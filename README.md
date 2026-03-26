@@ -230,7 +230,7 @@ HAVING COUNT(employee_id) = 1
 SELECT x,y,z,IF(x+y>z AND y+z>x AND z+x>y,"Yes","No") AS triangle FROM Triangle
 
 37. problem 180___
-38. SELECT DISTINCT L1.num AS ConsecutiveNums
+SELECT DISTINCT L1.num AS ConsecutiveNums
 FROM Logs L1
 JOIN Logs L2 
   ON L1.id = L2.id - 1
