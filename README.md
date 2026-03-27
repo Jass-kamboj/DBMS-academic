@@ -245,6 +245,6 @@ WHERE salary < 30000
 AND manager_id NOT IN(SELECT employee_id FROM Employees)
 ORDER BY employee_id
 
-problem 1667___
+39.problem 1667___
 SELECT user_id, CONCAT(UPPER(SUBSTRING(name,1,1)),LOWER(SUBSTRING(name,2))) AS name FROM Users
 ORDER BY user_id
