@@ -240,7 +240,7 @@ WHERE L1.num = L2.num
   AND L2.num = L3.num;
 
 38. problem 1978___
-39. SELECT employee_id FROM Employees
+SELECT employee_id FROM Employees
 WHERE salary < 30000
 AND manager_id NOT IN(SELECT employee_id FROM Employees)
 ORDER BY employee_id
