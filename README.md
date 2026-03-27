@@ -248,3 +248,7 @@ ORDER BY employee_id
 39.problem 1667___
 SELECT user_id, CONCAT(UPPER(SUBSTRING(name,1,1)),LOWER(SUBSTRING(name,2))) AS name FROM Users
 ORDER BY user_id
+
+40.problem 1527___
+SELECT patient_id, patient_name, conditions FROM Patients
+WHERE CONCAT(' ',conditions)LIKE '% DIAB1%'
