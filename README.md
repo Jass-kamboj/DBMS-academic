@@ -252,3 +252,18 @@ ORDER BY user_id
 40.problem 1527___
 SELECT patient_id, patient_name, conditions FROM Patients
 WHERE CONCAT(' ',conditions)LIKE '% DIAB1%'
+
+41.problem 196___
+DELETE P1 FROM Person P1
+JOIN Person P2
+ON P1.email = P2.email
+AND P1.id > P2.id
+OR
+DELETE FROM Person
+WHERE id NOT IN (
+    SELECT * FROM (
+        SELECT MIN(id)
+        FROM Person
+        GROUP BY email
+    ) AS temp
+);
