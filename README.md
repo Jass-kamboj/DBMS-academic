@@ -267,3 +267,9 @@ WHERE id NOT IN (
         GROUP BY email
     ) AS temp
 );
+
+42.problem 1484___
+SELECT sell_date,COUNT(DISTINCT product) AS num_sold,GROUP_CONCAT(DISTINCT product) AS products
+FROM Activities
+GROUP BY sell_date
+ORDER BY sell_date,product
