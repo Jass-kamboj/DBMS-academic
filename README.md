@@ -281,3 +281,8 @@ ON P.product_id = O.product_id
 WHERE O.order_date BETWEEN '2020-02-01' AND '2020-02-29'
 GROUP BY O.product_id
 HAVING SUM(O.unit) >= 100
+
+44.problem 1517___
+SELECT * FROM Users
+WHERE mail REGEXP '^[A-Za-z][A-Za-z0-9._-]*@leetcode[.]com$'
+AND mail LIKE BINARY '%@leetcode.com';
