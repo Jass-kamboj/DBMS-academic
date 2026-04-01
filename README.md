@@ -286,3 +286,16 @@ HAVING SUM(O.unit) >= 100
 SELECT * FROM Users
 WHERE mail REGEXP '^[A-Za-z][A-Za-z0-9._-]*@leetcode[.]com$'
 AND mail LIKE BINARY '%@leetcode.com';
+
+45.problem 1164___
+SELECT p.product_id,
+       COALESCE(p2.new_price, 10) AS price
+FROM (SELECT DISTINCT product_id FROM Products) p
+LEFT JOIN Products p2
+ON p.product_id = p2.product_id
+AND p2.change_date = (
+    SELECT MAX(change_date)
+    FROM Products
+    WHERE product_id = p.product_id
+      AND change_date <= '2019-08-16'
+);
