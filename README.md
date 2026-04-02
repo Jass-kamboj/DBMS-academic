@@ -307,3 +307,14 @@ SELECT CASE
             ELSE id
             END AS id, student FROM Seat
 ORDER BY id
+
+47.problem 1204___
+SELECT person_name
+FROM (
+    SELECT person_name,
+           SUM(weight) OVER (ORDER BY turn) AS total_weight
+    FROM Queue
+) t
+WHERE total_weight <= 1000
+ORDER BY total_weight DESC
+LIMIT 1;
