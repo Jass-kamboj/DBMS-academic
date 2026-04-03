@@ -318,3 +318,13 @@ FROM (
 WHERE total_weight <= 1000
 ORDER BY total_weight DESC
 LIMIT 1;
+
+48.problem 185___
+SELECT D.name AS Department, Temp.name AS Employee,Temp.salary AS Salary
+FROM (
+       SELECT name, salary, departmentId, DENSE_RANK() OVER (PARTITION BY departmentId ORDER BY salary DESC)
+       AS rnk FROM Employee
+) Temp
+JOIN Department D
+ON D.id = Temp.departmentId
+WHERE Temp.rnk <=3
