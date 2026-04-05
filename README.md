@@ -348,3 +348,19 @@ ON (
     (c.category = 'High Salary' AND a.income > 50000)
 )
 GROUP BY C.category
+
+50.problem 1341___
+(SELECT U.name AS results FROM Users U
+JOIN MovieRating M
+ON U.user_id = M.user_id
+GROUP BY M.user_id,U.name
+ORDER BY COUNT(M.user_id) DESC, U.name ASC
+LIMIT 1)
+UNION ALL
+(SELECT Mov.title AS results FROM Movies Mov
+JOIN MovieRating M
+ON Mov.movie_id = M.movie_id
+WHERE created_at >= '2020-02-01' AND created_at <= '2020-02-29'
+GROUP BY M.movie_id, Mov.title
+ORDER BY AVG(M.rating) DESC, Mov.title ASC
+LIMIT 1)
