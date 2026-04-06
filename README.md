@@ -364,3 +364,20 @@ WHERE created_at >= '2020-02-01' AND created_at <= '2020-02-29'
 GROUP BY M.movie_id, Mov.title
 ORDER BY AVG(M.rating) DESC, Mov.title ASC
 LIMIT 1)
+
+51.problem 1321___
+WITH Daily AS (
+    SELECT visited_on, Sum(amount) AS daily_amount FROM Customer
+    GROUP BY visited_on
+)
+SELECT visited_on,
+SUM(daily_amount) OVER(
+    ORDER BY visited_on
+    ROWS BETWEEN 6 PRECEDING AND CURRENT ROW
+    ) AS amount,
+ROUND(AVG(daily_amount) OVER(
+    ORDER BY visited_on
+    ROWS BETWEEN 6 PRECEDING AND CURRENT ROW)
+,2) AS average_amount FROM Daily
+ORDER BY visited_on
+LIMIT 100000 OFFSET 6
